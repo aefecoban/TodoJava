@@ -2,9 +2,14 @@ package Models;
 
 import java.util.ArrayList;
 
+import javax.swing.DebugGraphics;
+
+import com.google.gson.Gson;
+
 public class UserInfos {
     
-    ArrayList<UserInfo> infos;
+    ArrayList<UserInfo> infos = new ArrayList<UserInfo>();
+    Gson gson = new Gson();
 
     public UserInfos() {
         this(new ArrayList<UserInfo>());
@@ -61,6 +66,19 @@ public class UserInfos {
         }
 
         return results;
+    }
+
+    public void Load(String Json){
+        System.out.println("Json");
+        System.out.println(Json);
+        ArrayList<UserInfo> buff = gson.fromJson(Json, this.infos.getClass());
+        if(buff != null){
+            this.infos = buff;
+        }
+    }
+
+    public String Save(){
+        return gson.toJson(this.infos);
     }
 
 }
