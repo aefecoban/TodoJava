@@ -1,9 +1,6 @@
 package Models;
 
 import java.util.ArrayList;
-
-import javax.swing.DebugGraphics;
-
 import com.google.gson.Gson;
 
 public class UserInfos {
